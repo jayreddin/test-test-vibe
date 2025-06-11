@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "servers": [
+    {
+      "name": "Context7 Server",
+      "url": "https://api.context7.ai/v1",
+      "description": "Knowledge retrieval and document analysis tools",
+      "active": true,
+      "models": [
+        "openrouter:anthropic/claude-3.5-sonnet",
+        "openrouter:openai/gpt-4o",
+        "openrouter:meta-llama/llama-3.1-8b-instruct"
+      ]
+    },
+    {
+      "name": "Fetch Server",
+      "url": "https://api.fetch-mcp.dev/v1",
+      "description": "URL and API fetching tools",
+      "active": false,
+      "models": [
+        "openrouter:anthropic/claude-3.5-sonnet",
+        "openrouter:openai/gpt-4o"
+      ]
+    },
+    {
+      "name": "Firecrawl Server",
+      "url": "https://api.firecrawl.dev/v1",
+      "description": "Web crawling and data extraction tools",
+      "active": false,
+      "models": [
+        "openrouter:anthropic/claude-3.5-sonnet",
+        "openrouter:openai/gpt-4o",
+        "openrouter:mistralai/mistral-large-2411"
+      ]
+    }
+  ]
+}

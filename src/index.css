@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #4285f4;
+  --color-secondary: #34a853;
+  --color-accent: #ea4335;
+  --color-success: #34a853;
+  --color-warning: #fbbc05;
+  --color-error: #ea4335;
+  --color-background: #1a1a1a;
+  --color-panel-dark: #121212;
+  --color-panel-light: #2a2a2a;
+  --animation-speed: 0.2s;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-background);
+  color: white;
+  overflow: hidden;
+}
+
+.ai-tool-section {
+  border-radius: 8px;
+  margin-bottom: 16px;
+  transition: all var(--animation-speed) ease;
+}
+
+.ai-tool-section:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.panel-resize-handle {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s;
+}
+
+.panel-resize-handle:hover {
+  background-color: var(--color-primary);
+}
+
+/* Pulse animation for microphone */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(234, 67, 53, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 67, 53, 0);
+  }
+}
+
+.mic-pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Chat animation styles */
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+.chat-message {
+  transition: all 0.3s ease-out;
+}
+
+.chat-message.user {
+  transform-origin: right bottom;
+}
+
+.chat-message.assistant {
+  transform-origin: left bottom;
+}
+
+.chat-message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.chat-message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Hide scrollbar for class */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Animation for notification */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.app-notification {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Code editor customizations */
+.monaco-editor .decorationsOverviewRuler {
+  display: block;
+}
+
+.monaco-editor .minimap {
+  opacity: 0.6;
+}
+
+.monaco-editor .minimap:hover {
+  opacity: 1;
+}
+
+.monaco-editor .current-line {
+  border: none !important;
+  background-color: rgba(73, 90, 149, 0.3) !important;
+}
+
+.monaco-editor.focused .current-line {
+  background-color: rgba(73, 90, 149, 0.5) !important;
+}
+
+/* Syntax highlighting customization */
+.monaco-editor .mtk1 { color: #d4d4d4; }  /* Default text */
+.monaco-editor .mtk2 { color: #79b6f2; }  /* Variables */
+.monaco-editor .mtk3 { color: #9cdcfe; }  /* Parameters */
+.monaco-editor .mtk4 { color: #d7ba7d; }  /* Types */
+.monaco-editor .mtk5 { color: #c586c0; }  /* Keywords */
+.monaco-editor .mtk7 { color: #ce9178; }  /* Strings */
+.monaco-editor .mtk8 { color: #569cd6; }  /* Constants */
+.monaco-editor .mtk9 { color: #dcdcaa; }  /* Functions */
+.monaco-editor .mtk12 { color: #4ec9b0; } /* Classes */
+.monaco-editor .mtk13 { color: #c586c0; } /* Operators */
+
+/* Scrollbar in chat window */
+.chat-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.chat-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+.chat-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+.chat-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
